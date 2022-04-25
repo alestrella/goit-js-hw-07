@@ -1,6 +1,8 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
+// console.log(galleryItems);
+
 const galleryContainer = document.querySelector('.gallery');
 const itemsMarkup = createGalleryMarkup(galleryItems);
 
@@ -19,14 +21,8 @@ function createGalleryMarkup(items) {
 };
 
 function openImgHandler(e) {
-    const isImageLink = e.target.classList.contains('gallery__image');
-    if (!isImageLink) {
-        return;
-    };
-    
     e.preventDefault();
 
-    let lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 });
-}
-
-// console.log(galleryItems);
+    const lightbox = new SimpleLightbox('.gallery a', { 
+        captionsData: 'alt', captionDelay: 250, docClose: false});
+};
